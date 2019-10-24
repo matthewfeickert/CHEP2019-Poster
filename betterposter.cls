@@ -21,7 +21,7 @@
 
 
 %% Paper orientation
-\geometry{landscape}
+\geometry{portrait}
 
 %% Remove default margins
 \geometry{margin=0in}
@@ -99,8 +99,7 @@
 }
 
 \DeclareOption{a0paper}{
-% \geometry{a0paper}
-\geometry{paperwidth=42in,paperheight=59.3784355179704in}
+\geometry{a0paper} %46.8 x 33.1 in
 }
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
