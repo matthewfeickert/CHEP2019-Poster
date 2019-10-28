@@ -33,6 +33,9 @@
 \usepackage{booktabs} % Top and bottom rules for table
 \usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
 \usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{wrapfig} % Allows wrapping text around tables and figures
 \usepackage{bm}
 \usepackage{tikz}
@@ -53,11 +56,11 @@
 % \begin{minipage}[b]{0.75\linewidth}
 \begin{minipage}[b]{0.6\linewidth}
  \VERYHuge \color{Black} \textbf{pyhf} \color{Black}\\[0.5cm] % Title
- \Huge\textbf{pure Python implementation of HistFactory}\\[1cm] % Subtitle
+ \Huge{pure Python implementation of HistFactory}\\[1cm] % Subtitle
  % \author{{\href{https://www.matthewfeickert.com/}{\underline{Matthew Feickert}$^{1}$}}, \href{http://www.lukasheinrich.com/}{Lukas Heinrich$^{2}$}, \href{https://giordonstark.com/}{Giordon Stark$^{3}$}, \href{http://theoryandpractice.org/}{Kyle Cranmer$^{4}$}}
  % \institution{1 Southern Methodist University,~~~2 CERN,~~~3 University of California Santa Cruz,~~~4 New York University}
  \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
- \LARGE \textbf{{\href{https://www.matthewfeickert.com/}{\underline{Matthew Feickert}$^{1}$}}, \href{http://www.lukasheinrich.com/}{Lukas Heinrich$^{2}$}, \href{https://giordonstark.com/}{Giordon Stark$^{3}$}, \href{http://theoryandpractice.org/}{Kyle Cranmer$^{4}$}}\\[0.5cm] % Author(s)
+ \LARGE {\href{https://www.matthewfeickert.com/}{\underline{Matthew Feickert}$^{1}$}}, \href{http://www.lukasheinrich.com/}{Lukas Heinrich$^{2}$}, \href{https://giordonstark.com/}{Giordon Stark$^{3}$}, \href{http://theoryandpractice.org/}{Kyle Cranmer$^{4}$}\\[0.5cm] % Author(s)
  \normalsize {1 University of Illinois at Urbana-Champaign,~2 CERN,~3 University of California Santa Cruz,~4 New York University}\\[1cm]% University/organization
  % \LARGE\color{MediumBlue} \texttt{john@LaTeXTemplates.com} --- 1 (000) 111 1111\\
  \color{Black}
@@ -114,7 +117,7 @@
  %
  \begin{minipage}{0.33\linewidth}
   \begin{flushleft}
-   \large\qquad\textbf{Standard Model}
+   \large\quad~~\textbf{Standard Model}
   \end{flushleft}
  \end{minipage}%
  \quad
@@ -209,7 +212,8 @@
  \end{center}
  % \vspace{-1em}
  \begin{flushleft}
-  {\textbf{Example:} 2 binned single channel with 2 samples with 1 parameter of interest and 1 nuisance parameter}
+  {\small\textbf{Example:} 2 binned single channel with 2 samples with 1 parameter of interest and 1 nuisance parameter}
+
  \end{flushleft}
  \begin{center}
   \includegraphics[width=0.7\linewidth]{carbon_pyhf_CLs.png}
