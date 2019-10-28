@@ -35,33 +35,55 @@
 \usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
 \usepackage{wrapfig} % Allows wrapping text around tables and figures
 \usepackage{bm}
+\usepackage{tikz}
+\usepackage[skins]{tcolorbox}
 \usepackage[hidelinks]{hyperref}
 
 \begin{document}
-
+%
 %----------------------------------------------------------------------------------------
 %	POSTER HEADER
 %----------------------------------------------------------------------------------------
-
+%
 % The header is divided into two boxes:
 % The first is 75% wide and houses the title, subtitle, names, university/organization and contact information
 % The second is 25% wide and houses a logo for your university/organization or a photo of you
 % The widths of these boxes can be easily edited to accommodate your content as you see fit
-
-\begin{minipage}[b]{0.75\linewidth}
+%
+% \begin{minipage}[b]{0.75\linewidth}
+\begin{minipage}[b]{0.6\linewidth}
  \VERYHuge \color{Black} \textbf{pyhf} \color{Black}\\[0.5cm] % Title
  \Huge\textbf{pure Python implementation of HistFactory}\\[1cm] % Subtitle
  % \author{{\href{https://www.matthewfeickert.com/}{\underline{Matthew Feickert}$^{1}$}}, \href{http://www.lukasheinrich.com/}{Lukas Heinrich$^{2}$}, \href{https://giordonstark.com/}{Giordon Stark$^{3}$}, \href{http://theoryandpractice.org/}{Kyle Cranmer$^{4}$}}
  % \institution{1 Southern Methodist University,~~~2 CERN,~~~3 University of California Santa Cruz,~~~4 New York University}
  \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
- \large \textbf{{\href{https://www.matthewfeickert.com/}{\underline{Matthew Feickert}$^{1}$}}, \href{http://www.lukasheinrich.com/}{Lukas Heinrich$^{2}$}, \href{https://giordonstark.com/}{Giordon Stark$^{3}$}, \href{http://theoryandpractice.org/}{Kyle Cranmer$^{4}$}}\\[0.5cm] % Author(s)
- \normalsize {1 University of Illinois at Urbana-Champaign,~2 CERN,~3 University of California Santa Cruz,~4 New York University}\\ % University/organization
- % \Large \texttt{john@LaTeXTemplates.com} --- 1 (000) 111 1111\\
+ \LARGE \textbf{{\href{https://www.matthewfeickert.com/}{\underline{Matthew Feickert}$^{1}$}}, \href{http://www.lukasheinrich.com/}{Lukas Heinrich$^{2}$}, \href{https://giordonstark.com/}{Giordon Stark$^{3}$}, \href{http://theoryandpractice.org/}{Kyle Cranmer$^{4}$}}\\[0.5cm] % Author(s)
+ \normalsize {1 University of Illinois at Urbana-Champaign,~2 CERN,~3 University of California Santa Cruz,~4 New York University}\\[1cm]% University/organization
+ % \LARGE\color{MediumBlue} \texttt{john@LaTeXTemplates.com} --- 1 (000) 111 1111\\
  \color{Black}
+ \begin{minipage}{0.2\linewidth}
+  \begin{center}
+   \href{https://pypi.org/project/pyhf/}{\includegraphics[width=\linewidth]{pyhf_PyPI.pdf}}
+  \end{center}
+ \end{minipage}%
+ \quad
+ \begin{minipage}{0.3\linewidth}
+  \begin{center}
+   \href{https://doi.org/10.5281/zenodo.1169739}{\includegraphics[width=\linewidth]{zenodo_doi.pdf}}
+  \end{center}
+ \end{minipage}%
 \end{minipage}
 %
+\begin{minipage}[t]{0.15\linewidth}
+ \begin{center}
+  \begin{tikzpicture}
+   \node[circle,draw,inner sep=2.5cm,fill overzoom image=collaborators/feickert.jpg] (A) {};
+  \end{tikzpicture}
+ \end{center}
+\end{minipage}
 \begin{minipage}[b]{0.25\linewidth}
- \includegraphics[width=20cm]{pyhf-logo.png}\\
+ % \includegraphics[width=20cm]{pyhf-logo.png}\\
+ \includegraphics[width=\linewidth]{pyhf-logo.png}\\
 \end{minipage}
 
 \vspace{1cm} % A bit of extra whitespace between the header and poster content
@@ -82,32 +104,33 @@
 
  % \color{SaddleBrown} % SaddleBrown color for the introduction
 
- \section*{HistFactory}
+ \section*{\LARGE\color{MediumBlue} HistFactory}
+ \large
  One of the most widely used statistical models in \textbf{high energy physics} for binned measurements and searches
 
- \begin{center}\vspace{1cm}
+ \begin{center}
   \includegraphics[width=\linewidth]{HistFactory_result_examples.png}
  \end{center}
  %
  \begin{minipage}{0.33\linewidth}
-  \begin{center}
-   \large\textbf{Standard Model}
-  \end{center}
- \end{minipage}%
- \quad
- \begin{minipage}{0.33\linewidth}
   \begin{flushleft}
-   \large\qquad\textbf{Supersymmetry}
+   \large\qquad\textbf{Standard Model}
   \end{flushleft}
  \end{minipage}%
  \quad
  \begin{minipage}{0.33\linewidth}
   \begin{flushleft}
-   \large\quad\qquad\textbf{Exotics}
+   \large\quad~\textbf{Supersymmetry}
+  \end{flushleft}
+ \end{minipage}%
+ \quad
+ \begin{minipage}{0.33\linewidth}
+  \begin{flushleft}
+   \large\qquad~~\textbf{Exotics}
   \end{flushleft}
  \end{minipage}%
 
- \section*{Declarative binned likelihoods}
+ \section*{\LARGE\color{MediumBlue} Declarative binned likelihoods}
 
  \[
   f(\bm{n}, \bm{a} \,|\,\bm{\phi},\bm{\chi}) = \underbrace{\color{blue}{\prod_{c\in\mathrm{\,channels}} \prod_{b \in \mathrm{\,bins}_c}\textrm{Pois}\left(n_{cb} \,\middle|\, \nu_{cb}\left(\bm{\eta},\bm{\chi}\right)\right)}}_{\substack{\text{Simultaneous measurement}\\%
@@ -126,27 +149,35 @@
   \item Systematic uncertainties (e.g. normalization, shape, luminosity)
  \end{itemize}
 
- \section*{Performance}
+ \section*{\LARGE\color{MediumBlue} Performance}
  Efficient use of tensor computation makes pyhf fast
  \begin{center}
-  \includegraphics[width=\linewidth]{performance_only.pdf}
+  \includegraphics[width=0.9\linewidth]{performance_only.pdf}
  \end{center}
  Competitive with traditional \texttt{C++} implementation --- often faster
 
- \section*{Hardware Acceleration}
+ \section*{\LARGE\color{MediumBlue} Hardware Acceleration}
  For ML-library tensor backends the computational graph can be transparently placed on hardware accelerators: \textbf{GPUs} and \textbf{TPUs} for order of magnitude speed-up in computation
  \begin{center}
   \includegraphics[width=\linewidth]{scaling_hardware.pdf}
  \end{center}
 
- \section*{Implementation}
+ \section*{\LARGE\color{MediumBlue} Automatic Differentiation}
+
+ Tensor libraries from machine learning frameworks provide exact gradients of computational graphs (likelihood). Useful for minimization!
+
+ \section*{\LARGE\color{MediumBlue} Optimizers}
+
+ Support optimizers that implement Newton's method as well as \texttt{scipy.minimize} and MINUIT. More advanced optimizers to come soon!
+
+ \section*{\LARGE\color{MediumBlue} Implementation}
  \begin{center}
-  \includegraphics[width=0.9\linewidth]{computational_graph3.pdf}
+  % \includegraphics[width=0.8\linewidth]{computational_graph3.pdf}
+  \includegraphics[width=0.9\linewidth]{computational_graph.png}
  \end{center}
  The computational graph of multidimensional array operations for likelihood function of a physics analysis defined through HistFactory
 
- %
- \vspace{0.5em}
+ \vspace{1cm}
  %
  \begin{minipage}{0.33\linewidth}
   \begin{center}
@@ -165,58 +196,81 @@
    \includegraphics[width=0.85\linewidth]{Pytorch_logo.pdf}
   \end{center}
  \end{minipage}%
- \vspace{0.25cm}
+ \vspace{1cm}
 
- Use of $n$-dimensional array (``tensor'') operations through a common API layer around high performance tensor libraries
+ \noindent Use of $n$-dimensional array (``tensor'') operations through a common API layer around high performance tensor libraries
 
- \section*{JSON Specification}
- The full likelihood can be expressed as a \textbf{single JSON document}\\
- Archive friendly for analysis presentation
+
+ \section*{\LARGE\color{MediumBlue} JSON Specification}
+ The \textcolor{blue}{full} likelihood can be expressed as a \textbf{single JSON document}.\\Archive friendly for analysis presentation! Used by ATLAS to \textcolor{blue}{publish likelihoods} to HEPData (\textcolor{blue}{\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2019-029/}{ATL-PHYS-PUB-2019-029}}).
  \vspace{0.5em}
  \begin{center}
-  \includegraphics[width=0.9\linewidth]{carbon_JSON_spec.png}
+  \href{https://raw.githubusercontent.com/diana-hep/pyhf/master/examples/2-bin_1-channel.json}{\includegraphics[width=0.7\linewidth]{carbon_JSON_spec_annotated.png}}
  \end{center}
- \vspace{-1em}
- \begin{center}
+ % \vspace{-1em}
+ \begin{flushleft}
   {\textbf{Example:} 2 binned single channel with 2 samples with 1 parameter of interest and 1 nuisance parameter}
- \end{center}
+ \end{flushleft}
  \begin{center}
-  \includegraphics[width=0.9\linewidth]{carbon_pyhf_CLs.png}
+  \includegraphics[width=0.7\linewidth]{carbon_pyhf_CLs.png}
  \end{center}
 
- \begin{minipage}{0.58\linewidth}
-  \begin{center}
-   \href{http://iris-hep.org/}{\includegraphics[width=\linewidth]{IRIS-HEP_logo.eps}}
-   % \href{http://iris-hep.org/}{\includegraphics[width=\linewidth]{IRIS-HEP_logo-eps-converted-to.pdf}}
-  \end{center}
- \end{minipage}%
- \quad
- \begin{minipage}{0.38\linewidth}
-  \begin{center}
-   \href{https://pypi.org/project/pyhf/}{\includegraphics[width=\linewidth]{pyhf_PyPI.pdf}}
-  \end{center}
-  \vspace{1em}
-  \begin{center}
-   \href{https://doi.org/10.5281/zenodo.1169739}{\includegraphics[width=\linewidth]{zenodo_doi.pdf}}
-  \end{center}
-  \vspace{3em}
- \end{minipage}%
+ JSON Patch standard allows for reinterpretation with new signal models
+ \begin{center}
+  \includegraphics[width=0.7\linewidth]{carbon_JSON_patch.png}
+ \end{center}
+ %
+ \begin{center}
+  \includegraphics[width=0.7\linewidth]{carbon_reinterpretation.png}
+ \end{center}
 
- % \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
-
- % \begin{center}\vspace{1cm}
- %  \includegraphics[width=0.8\linewidth]{placeholder}
- %  \captionof{figure}{\color{Green} Figure caption}
- % \end{center}\vspace{1cm}
- %
- % \nocite{*} % Print all references regardless of whether they were cited in the poster or not
- % \bibliographystyle{plain} % Plain referencing style
- % \bibliography{sample} % Use the example bibliography file sample.bib
- %
- %
- % \section*{Acknowledgements}
- %
- % Etiam fermentum, arcu ut gravida fringilla, dolor arcu laoreet justo, ut imperdiet urna arcu a arcu. Donec nec ante a dui tempus consectetur. Cras nisi turpis, dapibus sit amet mattis sed, laoreet.
+ \vspace{3cm}
+ % \begin{minipage}{0.25\linewidth}
+ % \begin{center}
+ %  \begin{tikzpicture}
+ %   \node[circle,draw,inner sep=2cm,fill overzoom image=collaborators/feickert.jpg] (A) {};
+ %  \end{tikzpicture}
+ %  Feickert
+ % \end{center}
+ % \end{minipage}%
+ % \quad
+ % \begin{minipage}{0.25\linewidth}
+ %  \begin{center}
+ %   \begin{tikzpicture}
+ %    \node[circle,draw,inner sep=2cm,fill overzoom image=collaborators/heinrich.jpg] (A) {};
+ %   \end{tikzpicture}
+ %   Heinrich
+ %  \end{center}
+ % \end{minipage}%
+ % \quad
+ % \begin{minipage}{0.25\linewidth}
+ %  \begin{center}
+ %   \begin{tikzpicture}
+ %    \node[circle,draw,inner sep=2cm,fill overzoom image=collaborators/stark.jpg] (A) {};
+ %   \end{tikzpicture}
+ %   Stark
+ %  \end{center}
+ % \end{minipage}%
+ % \quad
+ % \begin{minipage}{0.25\linewidth}
+ %  \begin{center}
+ %   \begin{tikzpicture}
+ %    \node[circle,draw,inner sep=2cm,fill overzoom image=collaborators/cranmer.png] (A) {};
+ %   \end{tikzpicture}
+ %   Cranmer
+ %  \end{center}
+ % \end{minipage}%
+ % \begin{minipage}{0.33\linewidth}
+ %  \begin{center}
+ %   \href{https://pypi.org/project/pyhf/}{\includegraphics[width=\linewidth]{pyhf_PyPI.pdf}}
+ %  \end{center}
+ % \end{minipage}%
+ % \quad
+ % \begin{minipage}{0.33\linewidth}
+ %  \begin{center}
+ %   \href{https://doi.org/10.5281/zenodo.1169739}{\includegraphics[width=\linewidth]{zenodo_doi.pdf}}
+ %  \end{center}
+ % \end{minipage}%
 
 \end{multicols}
 \end{document}
